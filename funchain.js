@@ -44,3 +44,9 @@ class Blockchain {
     return true;
   }
 }
+
+
+const Funchain = new Blockchain()
+Funchain.addBlock(new Block(Date.now().toString(), ["Hi", "folks"]))
+
+console.log(Funchain.isValid())
