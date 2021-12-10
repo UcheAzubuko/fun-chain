@@ -18,4 +18,8 @@ class Blockchain {
   constructor() {
     this.chain = [new Block(Date.now().string())];
   }
+
+  getLatestBlock() {
+    return this.chain[this.chain.length - 1];
+  }
 }
