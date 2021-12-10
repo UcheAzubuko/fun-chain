@@ -16,7 +16,7 @@ class Block {
 
 class Blockchain {
   constructor() {
-    this.chain = [new Block(Date.now().string())];
+    this.chain = [new Block(Date.now().toString())];
   }
 
   getLatestBlock() {
@@ -25,5 +25,8 @@ class Blockchain {
 
   addBlock(block) {
     block.prevHash = this.getLatestBlock().hash;
+    block.hash = block.getHash();
+
+    this.chain.push(block);
   }
 }
