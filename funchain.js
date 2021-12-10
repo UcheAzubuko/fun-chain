@@ -27,6 +27,6 @@ class Blockchain {
     block.prevHash = this.getLatestBlock().hash;
     block.hash = block.getHash();
 
-    this.chain.push(block);
+    this.chain.push(Object.freeze(block));
   }
 }
