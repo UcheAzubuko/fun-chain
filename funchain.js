@@ -5,7 +5,7 @@ class Block {
   constructor(timestamp = "", data = []) {
     this.timestamp = timestamp;
     this.data = data;
-    this.hash = getHash();
+    this.hash = this.getHash();
     this.prevHash = "";
   }
 
@@ -45,8 +45,8 @@ class Blockchain {
   }
 }
 
+const Funchain = new Blockchain();
+Funchain.addBlock(new Block(Date.now().toString(), ["Hi", "folks"]));
 
-const Funchain = new Blockchain()
-Funchain.addBlock(new Block(Date.now().toString(), ["Hi", "folks"]))
-
-console.log(Funchain.isValid())
+// console.log(Funchain.chain);
+console.log(Funchain.isValid());
