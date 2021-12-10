@@ -29,4 +29,18 @@ class Blockchain {
 
     this.chain.push(Object.freeze(block));
   }
+
+  isValid(blockchain = this) {
+    for (let i = 1; i < blockchain.length; i++) {
+      const currentBlock = blockchain.chain[i];
+      const prevBlock = blockchain.chain[i - 1];
+
+      if (
+        currentBlock.hash !== currentBlock.getHash() ||
+        currentBlock.prevHash !== prevBlock.hash
+      )
+        return false;
+    }
+    return true;
+  }
 }
